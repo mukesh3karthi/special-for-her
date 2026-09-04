@@ -5,22 +5,22 @@ const HER_NAME = "Merlin";
 
 const highlights = [
   {
-    icon: "⚡",
+    icon: "😊",
     number: "01",
-    title: "Your Energy",
-    text: "You have a way of making normal conversations feel more interesting without even trying.",
+    title: "Your Smile",
+    text: "I don't know if anyone has told you this, but you have a really nice smile.",
   },
   {
     icon: "✨",
     number: "02",
-    title: "Your Personality",
-    text: "You have your own style, your own vibe, and that is exactly what makes you stand out.",
+    title: "Your Vibe",
+    text: "There is something about your vibe that I genuinely like. Talking with you feels easy.",
   },
   {
-    icon: "🌟",
+    icon: "🌷",
     number: "03",
-    title: "Your Uniqueness",
-    text: "Some people are simply memorable. There is something different about the way you carry yourself.",
+    title: "You",
+    text: "The more I get to know you, the more I feel like you are someone I would like to know better.",
   },
 ];
 
@@ -33,18 +33,18 @@ function App() {
 
   const particles = useMemo(
     () =>
-      Array.from({ length: 24 }, (_, index) => ({
+      Array.from({ length: 28 }, (_, index) => ({
         id: index,
-        left: `${(index * 17 + 7) % 100}%`,
+        left: `${(index * 17 + 8) % 100}%`,
         size: `${3 + (index % 5) * 2}px`,
         duration: `${10 + (index % 7)}s`,
-        delay: `${(index % 9) * 0.8}s`,
+        delay: `${(index % 8) * 0.8}s`,
       })),
     []
   );
 
   const createConfetti = (amount = 60) => {
-    const symbols = ["✨", "⭐", "🌟", "🎉", "✦"];
+    const symbols = ["✨", "⭐", "🌷", "🎉", "✦"];
 
     const pieces = Array.from({ length: amount }, (_, index) => ({
       id: `${Date.now()}-${index}`,
@@ -67,7 +67,7 @@ function App() {
     if (giftOpened) return;
 
     setGiftOpened(true);
-    createConfetti(70);
+    createConfetti(75);
 
     setTimeout(() => {
       setShowWebsite(true);
@@ -83,7 +83,7 @@ function App() {
 
   const handleAnswer = () => {
     setAnswered(true);
-    createConfetti(90);
+    createConfetti(95);
   };
 
   useEffect(() => {
@@ -96,7 +96,7 @@ function App() {
 
   return (
     <main className="surprise-page">
-      {/* BACKGROUND */}
+      {/* BACKGROUND DECORATION */}
       <div className="background-orb orb-one" />
       <div className="background-orb orb-two" />
       <div className="background-orb orb-three" />
@@ -137,9 +137,9 @@ function App() {
         ))}
       </div>
 
-      {/* ======================================================
-          FIRST SCREEN
-      ====================================================== */}
+      {/* =========================================
+          GIFT SCREEN
+      ========================================= */}
       {!showWebsite && (
         <section className="gift-screen">
           <div className="gift-grid" />
@@ -147,24 +147,23 @@ function App() {
           <div className="gift-intro">
             <div className="top-chip">
               <span>✦</span>
-              PRIVATE SURPRISE
+              JUST FOR YOU
             </div>
 
-            <p className="gift-small-text">SOMETHING DIFFERENT</p>
+            <p className="gift-small-text">A SMALL SURPRISE</p>
 
             <h1>
               Hey, <span>{HER_NAME}</span>
             </h1>
 
             <p className="gift-description">
-              This is not a normal message.
+              I wanted to make something a little different for you.
               <br />
-              I thought it would be more fun to make
+              A normal message felt too simple,
               <br />
-              something you could actually open.
+              so I made this little surprise instead. ✨
             </p>
 
-            {/* GIFT BOX */}
             <div
               className={`gift-box-wrapper ${
                 giftOpened ? "gift-opened" : ""
@@ -203,22 +202,22 @@ function App() {
                 </button>
 
                 <p className="tap-text">
-                  You can tap the box too
+                  Tap the gift box too 😊
                 </p>
               </>
             ) : (
               <div className="opening-message">
                 <span>✨</span>
-                <p>Unlocking your surprise...</p>
+                <p>Opening something made for you...</p>
               </div>
             )}
           </div>
         </section>
       )}
 
-      {/* ======================================================
-          MAIN CONTENT
-      ====================================================== */}
+      {/* =========================================
+          WEBSITE
+      ========================================= */}
       {showWebsite && (
         <div className="website-content">
           {/* HERO */}
@@ -231,22 +230,23 @@ function App() {
             </div>
 
             <h1 className="hero-title">
-              Welcome,
+              Surprise,
               <br />
-              <span>{HER_NAME}</span>
+              <span>{HER_NAME} ✨</span>
             </h1>
 
             <p className="hero-text">
-              You just unlocked a small corner of the internet
-              made to be a little unexpected.
+              There is actually a small reason behind this page.
+              <br />
+              Keep going and you will find out. 😄
             </p>
 
             <div className="hero-highlight">
-              No big reason. I just thought this would be fun.
+              Hope this makes you smile.
             </div>
 
             <a href="#highlights" className="continue-button">
-              Explore the surprise
+              Keep going
               <span>↓</span>
             </a>
 
@@ -260,12 +260,12 @@ function App() {
           {/* HIGHLIGHTS */}
           <section className="content-section" id="highlights">
             <div className="section-heading">
-              <p>THREE THINGS I NOTICED</p>
+              <p>A FEW THINGS I NOTICED</p>
 
               <h2>What makes you stand out</h2>
 
               <span>
-                Nothing serious. Just a few things that are hard not to notice.
+                Nothing too serious. Just a few things I genuinely noticed.
               </span>
             </div>
 
@@ -274,7 +274,6 @@ function App() {
                 <article className="highlight-card" key={item.title}>
                   <div className="card-top-row">
                     <span className="card-number">{item.number}</span>
-
                     <span className="card-arrow">↗</span>
                   </div>
 
@@ -292,7 +291,7 @@ function App() {
             </div>
           </section>
 
-          {/* MESSAGE SECTION */}
+          {/* REAL MESSAGE */}
           <section className="message-section">
             <div className="message-card">
               <div className="message-meta">
@@ -300,56 +299,59 @@ function App() {
                 <span>FOR {HER_NAME.toUpperCase()}</span>
               </div>
 
-              <div className="message-symbol">✦</div>
+              <div className="message-symbol">✨</div>
 
-              <h2>A small note</h2>
+              <p className="tiny-label">
+                OKAY... HERE'S THE REAL REASON
+              </p>
+
+              <h2>I wanted to tell you something.</h2>
 
               <p>
-                I could have just sent a normal message.
+                I wasn't really sure how to say this in a normal message.
                 <br />
                 <br />
-                But I thought it would be more interesting
-                to create something different.
+                I enjoy talking with you, I like your personality,
+                and somewhere along the way...
                 <br />
                 <br />
-                You have a really good vibe, and I wanted to make
-                a small surprise that matches that energy.
+                I realised that
+                <strong className="soft-confession">
+                  {" "}
+                  I kind of like you. 😊
+                </strong>
               </p>
 
               <div className="message-highlight">
-                Nothing dramatic.
+                Nothing too serious or complicated.
                 <br />
-                Just something cool made especially for you.
+                I just wanted you to know.
               </div>
             </div>
           </section>
 
-          {/* FUN SECTION */}
+          {/* PLAYFUL SECTION */}
           <section className="fun-section">
             <div className="fun-card">
-              <div className="fun-number">
-                02
-              </div>
+              <div className="fun-number">02</div>
 
-              <p className="tiny-label">RANDOM FACT</p>
+              <p className="tiny-label">
+                AND BEFORE YOU ASK...
+              </p>
 
-              <div className="fun-icon">🚀</div>
+              <div className="fun-icon">😄</div>
 
               <h2>
-                This page was supposed
+                Yes, I actually made
                 <br />
-                to be simple.
+                a whole website to say that.
               </h2>
 
               <p>
-                Then I started adding animations.
-                <br />
-                Then a gift box.
-                <br />
-                Then an envelope.
+                A text message would have been much easier.
                 <br />
                 <br />
-                At that point, there was no going back. 😄
+                But where's the fun in that?
               </p>
             </div>
           </section>
@@ -357,18 +359,20 @@ function App() {
           {/* ENVELOPE */}
           <section className="envelope-section">
             <div className="envelope-content">
-              <p className="envelope-label">FINAL UNLOCK</p>
+              <p className="envelope-label">
+                ONE LAST THING
+              </p>
 
               <h2>
-                One more thing
+                There's one more
                 <br />
-                is waiting.
+                message for you.
               </h2>
 
               <p className="envelope-subtitle">
-                You already opened the gift.
+                You already came this far.
                 <br />
-                Might as well finish the mission.
+                Might as well open it. 😄
               </p>
 
               {!envelopeOpened ? (
@@ -381,7 +385,7 @@ function App() {
                       <div className="envelope-back" />
 
                       <div className="envelope-paper">
-                        <span>For {HER_NAME}</span>
+                        <span>For {HER_NAME} ✨</span>
                       </div>
 
                       <div className="envelope-left" />
@@ -415,24 +419,24 @@ function App() {
                   </p>
 
                   <h2>
-                    You made it
+                    I'd like to know
                     <br />
-                    to the end.
+                    you better.
                   </h2>
 
                   <p>
-                    So here is the actual point:
+                    No big expectations.
                     <br />
-                    it would be nice to hang out sometime
+                    I just enjoy talking with you,
                     <br />
-                    without making it a big complicated thing.
+                    and I'd like to spend some time together.
                   </p>
                 </div>
               )}
             </div>
           </section>
 
-          {/* FINAL QUESTION */}
+          {/* COFFEE QUESTION */}
           {envelopeOpened && (
             <section className="question-section">
               <div className="question-container">
@@ -443,19 +447,19 @@ function App() {
                     </div>
 
                     <p className="question-label">
-                      QUICK QUESTION
+                      SO...
                     </p>
 
                     <h2>
-                      Coffee sometime,
+                      Coffee with me,
                       <br />
                       <span>{HER_NAME}?</span>
                     </h2>
 
                     <p className="question-description">
-                      Good coffee. Good conversation.
+                      Just you, me, coffee,
                       <br />
-                      Nothing more complicated than that.
+                      and a good conversation. 😊
                     </p>
 
                     <div className="question-buttons">
@@ -463,14 +467,14 @@ function App() {
                         className="main-answer-button"
                         onClick={handleAnswer}
                       >
-                        Sounds good 😌
+                        Yeah, why not 😄
                       </button>
 
                       <button
                         className="second-answer-button"
                         onClick={handleAnswer}
                       >
-                        Sure, why not 😄
+                        Coffee sounds good ☕
                       </button>
                     </div>
                   </>
@@ -481,19 +485,19 @@ function App() {
                     </div>
 
                     <p className="accepted-label">
-                      MISSION COMPLETE
+                      WELL... THAT WENT WELL 😄
                     </p>
 
-                    <h2>Perfect.</h2>
+                    <h2>You just made me smile.</h2>
 
                     <p>
-                      Looks like coffee is officially on the list.
+                      Okay then...
                       <br />
-                      I will take that as a successful surprise.
+                      coffee it is. ☕
                     </p>
 
                     <div className="accepted-footer">
-                      See you soon, {HER_NAME} ✨
+                      I'll text you, {HER_NAME} ✨
                     </div>
                   </div>
                 )}
@@ -507,9 +511,9 @@ function App() {
             <span>✦</span>
 
             <p>
-              Built as a small surprise.
+              Made with a little creativity,
               <br />
-              Hope it made you smile.
+              just to make your day a bit different. 😊
             </p>
           </footer>
         </div>
