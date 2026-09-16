@@ -4,7 +4,7 @@ import "./App.css";
 const HER_NAME = "Merlin";
 
 /* Chapter 01 photos */
-import photo1 from "./photos/photo2.jpg";
+import photo1 from "./photos/photo2.jpeg";
 import photo2 from "./photos/photo2.jpeg";
 import photo3 from "./photos/photo2.jpeg";
 import photo4 from "./photos/photo2.jpeg";
