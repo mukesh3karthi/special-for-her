@@ -4,10 +4,10 @@ import "./App.css";
 const HER_NAME = "Merlin";
 
 /* Chapter 01 photos */
-import photo1 from "./photos/photo2.jpeg";
+import photo1 from "./photos/photo1.jpg";
 import photo2 from "./photos/photo2.jpeg";
-import photo3 from "./photos/photo2.jpeg";
-import photo4 from "./photos/photo2.jpeg";
+import photo3 from "./photos/photo3.jpeg";
+import photo4 from "./photos/photo4.jpeg";
 
 /* Merlin slider photos */
 import merlin1 from "./photos/merlin1.jpg";
